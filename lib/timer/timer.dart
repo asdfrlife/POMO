@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pomodoro/others/providing.dart';
-
+import 'package:pomodoro/others/core/theme/pomodoro_colors.dart';
 import 'package:timer_count_down/timer_count_down.dart';
 import 'package:timer_count_down/timer_controller.dart';
-import 'package:pomodoro/others/Declaration.dart';
+import 'package:pomodoro/others/counter_and_controller.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 class TimerPage extends ConsumerStatefulWidget {
@@ -178,7 +178,7 @@ class _TimerPageState extends ConsumerState<TimerPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   spacing: 5,
                   children: [
-                    Icon(session[darkMode.counter], color: darkMode.isItDarkMode ?
+                    Icon(darkMode.sessionIcon[darkMode.counter], color: darkMode.isItDarkMode ?
                     darkMode.counter == 0 ? theColorFocus[0] : darkMode.counter ==1 ? theColorsBreak[0] : theColorlbreak[0] :
                     darkMode.counter == 0 ? theColorFocus[1] : darkMode.counter ==1 ? theColorsBreak[1] : theColorlbreak[1],),
                     AnimatedDefaultTextStyle(
@@ -190,7 +190,7 @@ class _TimerPageState extends ConsumerState<TimerPage> {
                         fontSize: 20
                     ),
                         duration: Duration(milliseconds: 400),
-                        child: Text(theThree[darkMode.counter], )
+                        child: Text(darkMode.sessionName[darkMode.counter], )
 
                     )
                   ],

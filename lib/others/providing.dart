@@ -1,8 +1,9 @@
-import 'package:flutter/foundation.dart';
-import 'package:pomodoro/others/Declaration.dart';
+import 'package:pomodoro/others/core/theme/pomodoro_colors.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pomodoro/others/counter_and_controller.dart';
+import 'package:pomodoro/others/features/timer/domain/timerState.dart';
 import 'package:flutter/material.dart';
-import 'package:timer_count_down/timer_count_down.dart';
-import 'package:timer_count_down/timer_controller.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'providing.g.dart';
 @riverpod
@@ -10,6 +11,8 @@ class  multiNotifier extends _$multiNotifier {
   @override
   TheParameters build () {
     return TheParameters(
+        sessionName:['Focus' , 'Short Break' , 'Long Break'],
+        sessionIcon: [FontAwesomeIcons.brain , Icons.emoji_food_beverage,Icons.emoji_food_beverage],
         autoStart: false,
         weigh: 200,
         isItDarkMode: false,
@@ -21,6 +24,10 @@ class  multiNotifier extends _$multiNotifier {
         isStarted: false,
         theIcon: Icons.play_arrow_rounded,
         fCounter: 0);
+  }
+  AudioPlayer player = AudioPlayer();
+  void playSound() {
+    player.play(AssetSource('Sounds/notification-bell.wav'));
   }
   void atFinished() async {
     // Focus → Short Break

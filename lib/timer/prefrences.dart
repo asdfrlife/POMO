@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pomodoro/others/core/theme/pomodoro_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pomodoro/others/Declaration.dart';
 import 'package:pomodoro/others/providing.dart';
 
 class Preferences extends ConsumerStatefulWidget {
